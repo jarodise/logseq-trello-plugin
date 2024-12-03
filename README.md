@@ -1,4 +1,4 @@
-# LogSeq Trello Integration Plugin
+# LogSeq Trello Plugin (logseq-trello-plugin)
 
 A seamless integration between LogSeq and Trello that allows you to import Trello cards as LogSeq pages and keep them in sync.
 
@@ -26,21 +26,22 @@ A seamless integration between LogSeq and Trello that allows you to import Trell
 
 1. Open LogSeq
 2. Go to Settings > Plugins
-3. Search for "Trello Integration"
+3. Search for "logseq-trello-plugin"
 4. Click Install
 
 ## Configuration
 
-1. Get your Trello Token:
-   - Visit https://trello.com/1/authorize?expiration=never&name=LogSeq%20Integration&scope=read,write&response_type=token&key=9537467993aefd6dca9ee7788179c298
-   - Click "Allow"
-   - Copy the token shown on the page
-
-2. Configure the Plugin:
+1. Connect to Trello:
    - Open LogSeq Settings
-   - Go to Plugin Settings > Trello Integration
-   - Paste your Trello Token
-   - Use `/Trello Get Lists` to find and set your default List ID
+   - Go to Plugin Settings > logseq-trello-plugin
+   - Click "Click to Authorize with Trello"
+   - Authorize the plugin in the popup window
+   - The token will be automatically configured
+
+2. Set Default List:
+   - Use `/Trello Get Lists` command to view your boards and lists
+   - Copy your preferred List ID
+   - Paste it in the plugin settings under "Default List ID"
 
 ## Usage
 
