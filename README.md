@@ -1,14 +1,14 @@
-# LogSeq Trello Plugin (logseq-trello-plugin)
+# Logseq Trello Plugin (logseq-trello-plugin)
 
-A seamless integration between LogSeq and Trello that allows you to import Trello cards as LogSeq pages and keep them in sync.
+A seamless integration between Logseq and Trello that allows you to import Trello cards as Logseq pages and keep them in sync.
 
 ## Features
 
 ### 🔄 Bi-directional Sync
-- Import Trello cards as LogSeq pages
+- Import Trello cards as Logseq pages
 - Smart version control to prevent accidental overwrites
 - Preserves your local edits when they're newer than Trello changes
-- Intelligent duplicate handling on both LogSeq and Trello sides
+- Intelligent duplicate handling on both Logseq and Trello sides
 
 ### 📝 Content Management
 - Clean, block-based formatting of card content
@@ -24,7 +24,7 @@ A seamless integration between LogSeq and Trello that allows you to import Trell
 
 ## Installation
 
-1. Open LogSeq
+1. Open Logseq
 2. Go to Settings > Plugins
 3. Search for "logseq-trello-plugin"
 4. Click Install
@@ -39,7 +39,7 @@ A seamless integration between LogSeq and Trello that allows you to import Trell
    - The token will be automatically generated
    - Copy the token and paste in the blank space below "Trello Token"
 
-For simplicity puropose, currently you can only interact with ONE list from your Trello board, 
+For simplicity purpose, currently you can only interact with ONE list from your Trello board, 
 to set the default list, follow the steps below: 
 
 2. Set Default List:
@@ -51,7 +51,7 @@ to set the default list, follow the steps below:
 ## Usage
 
 ### Creating Trello Cards
-1. Write your content in LogSeq
+1. Write your content in Logseq
 2. Use `/Send Block to Trello` to create a card from current block
 3. Or use `/Send Page to Trello` to create a card from entire page
 4. The Trello card URL will be added as a property
@@ -72,7 +72,7 @@ to set the default list, follow the steps below:
 ## Smart Features
 
 ### Version Control
-- Tracks last update time of both Trello cards and LogSeq pages
+- Tracks last update time of both Trello cards and Logseq pages
 - Only updates pages when Trello content is newer
 - Preserves your local edits when they're more recent
 - Prevents accidental overwrites
@@ -80,7 +80,7 @@ to set the default list, follow the steps below:
 ### Duplicate Handling
 - Checks for existing cards before creating new ones
 - Updates existing cards instead of creating duplicates
-- Maintains consistent links between LogSeq and Trello
+- Maintains consistent links between Logseq and Trello
 - Preserves card history and comments
 
 ## Support
@@ -103,4 +103,4 @@ MIT License - feel free to use this plugin in your projects!
 
 ---
 
-Made with ❤️ for the LogSeq community
+Made with ❤️ for the Logseq community
