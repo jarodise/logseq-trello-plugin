@@ -4,84 +4,65 @@ A seamless integration between Logseq and Trello that allows you to import Trell
 
 ## Features
 
-### 🔄 Bi-directional Sync
-- Import Trello cards as Logseq pages
-- Smart version control to prevent accidental overwrites
-- Preserves your local edits when they're newer than Trello changes
-- Intelligent duplicate handling on both Logseq and Trello sides
+This plugin provides seamless integration between Logseq and Trello, allowing you to:
 
-### 📝 Content Management
-- Clean, block-based formatting of card content
-- Preserves Unicode characters (including Chinese)
-- Imports both card descriptions and comments
-- Each paragraph and comment in separate blocks for easy editing
+- Create Trello cards directly from Logseq blocks or pages
+- Import Trello cards as Logseq pages with full content and formatting
+- Track relationships between Logseq pages and Trello cards via automatic URL linking
+- Preserve all card content including descriptions, comments, and metadata
+- Support Unicode characters (including Chinese, Japanese, etc.)
+- Smart version control to prevent conflicts:
+  * Tracks changes on both Trello and Logseq sides
+  * Only updates content when necessary
+  * Preserves local edits when they're more recent
+- Intelligent duplicate handling:
+  * Prevents creating duplicate cards
+  * Updates existing cards instead of creating new ones
+  * Maintains consistent links between platforms
+- Import content in clean, block-based format for easy editing
 
-### 🛠️ Commands
-- `/Send Block to Trello`: Create a Trello card from current block
-- `/Send Page to Trello`: Create a Trello card from current page （you can trigger it anywhere on within the page you want to send）
-- `/Trello Get Lists`: Discover your Trello boards and lists
-- `/Trello Pull Cards`: Import all cards from the preset Default list
+## Getting Started
 
-## Installation
+### 1. Installation
+1. Open Logseq Settings > Plugins
+2. Search for "logseq-trello-plugin"
+3. Click Install
 
-1. Open Logseq
-2. Go to Settings > Plugins
-3. Search for "logseq-trello-plugin"
-4. Click Install
+### 2. Trello Authorization
+1. Go to Plugin Settings > logseq-trello-plugin
+2. Click "Click to Authorize with Trello"
+3. Complete the authorization in the popup window
+4. Copy the generated token and paste it in "Trello Token" field
 
-## Configuration
+### 3. Set Default List
+1. Use `/Trello Get Lists` to view your boards and lists
+2. Copy your preferred List ID
+3. Paste it in plugin settings under "Default List ID"
 
-1. Connect to Trello:
-   - Open Logseq Settings
-   - Go to Plugin Settings > logseq-trello-plugin
-   - Click "Click to Authorize with Trello"
-   - Authorize the plugin in the popup window
-   - The token will be automatically generated
-   - Copy the token and paste in the blank space below "Trello Token"
+### 4. Available Commands
+- `/Send Block to Trello`: Creates a new card from your current block
+- `/Send Page to Trello`: Creates a new card from your current page (can trigger anywhere within the page)
+- `/Trello Get Lists`: Shows all your Trello boards and lists
+- `/Trello Pull Cards`: Imports all cards from your default list
 
-For simplicity purpose, currently you can only interact with ONE list from your Trello board, 
-to set the default list, follow the steps below: 
+### 5. Working with Cards
+1. **Creating Cards**:
+   - Select a block or page you want to send to Trello
+   - Use `/Send Block to Trello` or `/Send Page to Trello`
+   - The card's URL will be automatically added to your page
 
-2. Set Default List:
+2. **Importing Cards**:
+   - Position your cursor where you want the cards
+   - Use `/Trello Pull Cards`
+   - Each card becomes a Logseq page with:
+     * Card description as blocks
+     * Comments with timestamps
+     * Card metadata (labels, due dates, etc.)
 
-   - Use `/Trello Get Lists` command to view your boards and lists
-   - Copy your preferred List ID
-   - Paste it in the plugin settings under "Default List ID"
-
-## Usage
-
-### Creating Trello Cards
-1. Write your content in Logseq
-2. Use `/Send Block to Trello` to create a card from current block
-3. Or use `/Send Page to Trello` to create a card from entire page
-4. The Trello card URL will be added as a property
-
-### Importing Cards
-1. Place your cursor where you want to import cards
-2. Type `/Trello Pull Cards`
-3. Cards will be imported as separate pages with:
-   - Card description (in blocks)
-   - Comments section (if comments exist)
-   - Each comment with timestamp
-
-### Finding List IDs
-1. Type `/Trello Get Lists`
-2. View your boards and lists
-3. Copy the desired List ID to plugin settings
-
-## Smart Features
-
-### Version Control
-- Tracks last update time of both Trello cards and Logseq pages
-- Only updates pages when Trello content is newer
-- Preserves your local edits when they're more recent
-- Prevents accidental overwrites
-
-### Duplicate Handling
-- Checks for existing cards before creating new ones
-- Updates existing cards instead of creating duplicates
-- Maintains consistent links between Logseq and Trello
-- Preserves card history and comments
+3. **Updating Content**:
+   - The plugin tracks changes on both sides
+   - New Trello content will be imported on next pull
+   - Local changes are preserved when they're more recent
 
 ## Support
 
@@ -99,8 +80,4 @@ Contributions are welcome! Please:
 
 ## License
 
-MIT License - feel free to use this plugin in your projects!
-
----
-
-Made with ❤️ for the Logseq community
+MIT
