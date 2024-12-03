@@ -1,0 +1,21 @@
+{
+  "name": "logseq-trello-plugin",
+  "version": "0.0.1",
+  "author": "jarodise",
+  "main": "index.html",
+  "description": "📋 Trello integration for LogSeq",
+  "license": "MIT",
+  "dependencies": {
+    "node-trello": "1.3.0"
+  },
+  "devDependencies": {
+    "@logseq/libs": "^0.0.1-alpha.29"
+  },
+  "browserslist": [
+    "chrome 80"
+  ],
+  "logseq": {
+    "id": "logseq-trello-plugin",
+    "icon": "icon.png"
+  }
+}
