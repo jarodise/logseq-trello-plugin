@@ -39,7 +39,8 @@ A seamless integration between LogSeq and Trello that allows you to import Trell
    - The token will be automatically generated
    - Copy the token and paste in the blank space below "Trello Token"
 
-For simplicity puropose, currently you can only interact with ONE list on your trello board, this will be designate as your default list, to set the default list, follow the steps below: 
+For simplicity puropose, currently you can only interact with ONE list from your Trello board, 
+to set the default list, follow the steps below: 
 
 2. Set Default List:
 
