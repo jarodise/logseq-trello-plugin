@@ -18,7 +18,7 @@ A seamless integration between Logseq and Trello that allows you to import Trell
 
 ### 🛠️ Commands
 - `/Send Block to Trello`: Create a Trello card from current block
-- `/Send Page to Trello`: Create a Trello card from current page （you can trigger it anywhere on within the page you want to send)
+- `/Send Page to Trello`: Create a Trello card from current page （you can trigger it anywhere on within the page you want to send）
 - `/Trello Get Lists`: Discover your Trello boards and lists
 - `/Trello Pull Cards`: Import all cards from the preset Default list
 
