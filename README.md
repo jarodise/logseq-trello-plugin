@@ -32,13 +32,17 @@ A seamless integration between LogSeq and Trello that allows you to import Trell
 ## Configuration
 
 1. Connect to Trello:
-   - Open LogSeq Settings
+   - Open Logseq Settings
    - Go to Plugin Settings > logseq-trello-plugin
    - Click "Click to Authorize with Trello"
    - Authorize the plugin in the popup window
-   - The token will be automatically configured
+   - The token will be automatically generated
+   - Copy the token and paste in the blank space below "Trello Token"
+
+For simplicity puropose, currently you can only interact with ONE list on your trello board, this will be designate as your default list, to set the default list, follow the steps below: 
 
 2. Set Default List:
+
    - Use `/Trello Get Lists` command to view your boards and lists
    - Copy your preferred List ID
    - Paste it in the plugin settings under "Default List ID"
