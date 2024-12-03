@@ -31,16 +31,12 @@ A seamless integration between LogSeq and Trello that allows you to import Trell
 
 ## Configuration
 
-1. Get your Trello API Key:
-   - Visit https://trello.com/app-key
-   - Copy your API Key
+1. Get your Trello Token:
+   - Visit https://trello.com/1/authorize?expiration=never&name=LogSeq%20Integration&scope=read,write&response_type=token&key=9537467993aefd6dca9ee7788179c298
+   - Click "Allow"
+   - Copy the token shown on the page
 
-2. Generate a Token:
-   - Click "Generate a Token" on the same page
-   - Authorize the application
-   - Copy the generated token
-
-3. Configure the Plugin:
+2. Configure the Plugin:
    - Open LogSeq Settings
    - Go to Plugin Settings > Trello Integration
    - Paste your Trello Token
