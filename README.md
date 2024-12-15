@@ -39,13 +39,18 @@ This plugin provides seamless integration between Logseq and Trello, allowing yo
 2. Copy your preferred List ID
 3. Paste it in plugin settings under "Default List ID"
 
-### 4. Available Commands
+### 4. Set Default Card Position
+1. Go to Plugin Settings > logseq-trello-plugin
+2. Set the default position for newly created Trello cards
+  - Valid values are `top`, `bottom` (default) or an absolute numeric position
+
+### 5. Available Commands
 - `/Send Block to Trello`: Creates a new card from your current block
 - `/Send Page to Trello`: Creates a new card from your current page (can trigger anywhere within the page)
 - `/Trello Get Lists`: Shows all your Trello boards and lists
 - `/Trello Pull Cards`: Imports all cards from your default list
 
-### 5. Working with Cards
+### 6. Working with Cards
 1. **Creating Cards**:
    - Select a block or page you want to send to Trello
    - Use `/Send Block to Trello` or `/Send Page to Trello`
