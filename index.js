@@ -27,6 +27,13 @@ const settings = [
     title: "Default Card Position",
     description: "The default position in Trello list for new cards.  Specify either top, bottom or an absolute numeric position",
     default: "bottom" // defaulting to bottom doesn't change existing behaviour
+  },
+  {
+    key: "shortUrl",
+    type: "boolean",
+    title: "Use short or long Trello card URL",
+    description: "Use the short URL in block/page content after creating a Trello card",
+    default: false // defaulting to false doesn't change existing behaviour
   }
 ];
 
@@ -327,11 +334,16 @@ function main() {
     try {
       const card = await createTrelloCard(token, listId, block.content, cardPosition);
       logseq.App.showMsg('Trello card created successfully!');
-      
+      let url = card.url; // default to long
+
+      if(logseq.settings?.shortUrl) {
+        url = card.shortUrl;
+      }
+
       // Add the card URL as a property to the block
       await logseq.Editor.updateBlock(
         block.uuid,
-        `${block.content}\ntrello-card:: ${card.url}`
+        `${block.content}\ntrello-card:: ${url}`
       );
 
     } catch (error) {
@@ -374,12 +386,17 @@ function main() {
       // Create card with page title and content
       const card = await createTrelloCard(token, listId, page.name, cardPosition, description);
       logseq.App.showMsg('Trello card created from page successfully!');
-      
+      let url = card.url; // default to long
+
+      if(logseq.settings?.shortUrl) {
+        url = card.shortUrl;
+      }
+
       // Add the card URL as a page property
       await logseq.Editor.upsertBlockProperty(
         page.uuid,
         'trello-card',
-        card.url
+        url
       );
 
     } catch (error) {
