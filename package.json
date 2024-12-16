@@ -1,6 +1,6 @@
 {
   "name": "logseq-trello-plugin",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "author": "jarodise",
   "main": "index.html",
   "description": "📋 Trello integration for LogSeq",
