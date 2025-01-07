@@ -54,7 +54,7 @@ This plugin provides seamless integration between Logseq and Trello, allowing yo
 - `/Trello Get Lists`: Shows all your Trello boards and lists
 - `/Trello Pull Cards`: Imports all cards from your default list
 
-### . Working with Cards
+### 7. Working with Cards
 1. **Creating Cards**:
    - Select a block or page you want to send to Trello
    - Use `/Send Block to Trello` or `/Send Page to Trello`
