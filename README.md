@@ -20,6 +20,9 @@ This plugin provides seamless integration between Logseq and Trello, allowing yo
   * Updates existing cards instead of creating new ones
   * Maintains consistent links between platforms
 - Import content in clean, block-based format for easy editing
+- Allows the ability to convert a Logseq block into a task after the Trello card has been created
+  * Handles both the TODO/DOING and LATER/NOW constructs
+  * Does not convert a page to a task when creating a Trello card from a Logseq page
 
 ## Getting Started
 
@@ -48,13 +51,18 @@ This plugin provides seamless integration between Logseq and Trello, allowing yo
 1. Go to Plugin Settings > logseq-trello-plugin
 2. Setup to use either the short or long URL when adding the URL link to the block/page after creating a Trello card
 
-### 6. Available Commands
+### 6. Convert block to task
+1. Go to Plugin Settings > logseq-trello-plugin
+2. Set to convert the block to a task after creating a Trello card from a block
+  - Note: the action of creating a Trello card from a page does **not** convert the page to a task
+
+### 7. Available Commands
 - `/Send Block to Trello`: Creates a new card from your current block
 - `/Send Page to Trello`: Creates a new card from your current page (can trigger anywhere within the page)
 - `/Trello Get Lists`: Shows all your Trello boards and lists
 - `/Trello Pull Cards`: Imports all cards from your default list
 
-### 7. Working with Cards
+### 8. Working with Cards
 1. **Creating Cards**:
    - Select a block or page you want to send to Trello
    - Use `/Send Block to Trello` or `/Send Page to Trello`
