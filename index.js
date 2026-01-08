@@ -20,6 +20,27 @@ const settings = [
     title: "Default List ID",
     description: "Use /Trello Get Lists to find your list ID, then paste it here",
     default: ""
+  },
+  {
+    key: "defaultCardPos",
+    type: "string",
+    title: "Default Card Position",
+    description: "The default position in Trello list for new cards.  Specify either top, bottom or an absolute numeric position",
+    default: "bottom" // defaulting to bottom doesn't change existing behaviour
+  },
+  {
+    key: "shortUrl",
+    type: "boolean",
+    title: "Use short or long Trello card URL",
+    description: "Use the short URL in block/page content after creating a Trello card",
+    default: false // defaulting to false doesn't change existing behaviour
+  },
+  {
+    key: "convertToTask",
+    type: "boolean",
+    title: "Convert block to a task after creating Trello card",
+    description: "After creating the Trello card from a block, convert the block to a task",
+    default: false // defaulting to false doesn't change existing behaviour
   }
 ];
 
@@ -71,7 +92,7 @@ async function checkExistingCard(token, listId, name) {
   return cards.find(card => card.name === name);
 }
 
-async function createTrelloCard(token, listId, name, desc = '') {
+async function createTrelloCard(token, listId, name, cardPosition, desc = '') {
   // First check if card already exists
   const existingCard = await checkExistingCard(token, listId, name);
   if (existingCard) {
@@ -108,7 +129,8 @@ async function createTrelloCard(token, listId, name, desc = '') {
       body: JSON.stringify({
         name,
         idList: listId,
-        desc
+        desc: desc,
+        pos: cardPosition
       })
     }
   );
@@ -304,6 +326,7 @@ function main() {
     // Get settings
     const token = logseq.settings?.trelloToken;
     const listId = logseq.settings?.defaultListId;
+    const cardPosition = logseq.settings?.defaultCardPos;
 
     if (!token) {
       logseq.App.showMsg('Please configure your Trello token in plugin settings!', 'warning');
@@ -316,13 +339,30 @@ function main() {
     }
 
     try {
-      const card = await createTrelloCard(token, listId, block.content);
+      const card = await createTrelloCard(token, listId, block.content, cardPosition);
       logseq.App.showMsg('Trello card created successfully!');
-      
+
+      let url = card.url; // default to long
+      if(logseq.settings?.shortUrl) {
+        url = card.shortUrl;
+      }
+
+      // Convert block to a task if convertToTask == True
+      //   Ensure that we handle both TODO/DOING and LATER/NOW constructs using the preferredTodo user config value
+      const preferredTodo = (await logseq.App.getUserConfigs()).preferredTodo; 
+      let task = ""; // default to not being a task
+
+      if(logseq.settings?.convertToTask) {
+        if(! block.content.startsWith(preferredTodo)) {
+          // Not already a task so add prefix
+          task = preferredTodo.concat(' ');
+        }
+      }
+
       // Add the card URL as a property to the block
       await logseq.Editor.updateBlock(
         block.uuid,
-        `${block.content}\ntrello-card:: ${card.url}`
+        `${task}${block.content}\ntrello-card:: ${url}`
       );
 
     } catch (error) {
@@ -336,6 +376,7 @@ function main() {
     // Get settings
     const token = logseq.settings?.trelloToken;
     const listId = logseq.settings?.defaultListId;
+    const cardPosition = logseq.settings?.defaultCardPos;
 
     if (!token) {
       logseq.App.showMsg('Please configure your Trello token in plugin settings!', 'warning');
@@ -362,14 +403,19 @@ function main() {
         .join('\n');
 
       // Create card with page title and content
-      const card = await createTrelloCard(token, listId, page.name, description);
+      const card = await createTrelloCard(token, listId, page.name, cardPosition, description);
       logseq.App.showMsg('Trello card created from page successfully!');
-      
+      let url = card.url; // default to long
+
+      if(logseq.settings?.shortUrl) {
+        url = card.shortUrl;
+      }
+
       // Add the card URL as a page property
       await logseq.Editor.upsertBlockProperty(
         page.uuid,
         'trello-card',
-        card.url
+        url
       );
 
     } catch (error) {
